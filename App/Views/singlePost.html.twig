@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Post{% endblock %}
+{% block content %}
+
+    <img class ="w-40% p-1" src="{{ article.getImageURL() }}" alt="{{ article.getName() }}">
+    <strong> Author: {{ article.getAuthor().getName() }}</strong>
+    <h3> Title: {{ article.getTitle() }}</h3>
+    <h3> Description: {{ article.getBody() }}</h3>
+
+    <div>
+        {% for comment in comments %}
+            <strong> Comment by: {{ comment.getEmail() }}</strong>
+            <h3> {{ comment.getBody() }}</h3>
+        {% endfor %}
+    </div>
+
+{% endblock %}
